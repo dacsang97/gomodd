@@ -34,4 +34,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: dacsang97/gomodd:${{ steps.get_version.outputs.VERSION }}
+          tags: ghcr.io/dacsang97/gomodd:${{ steps.get_version.outputs.VERSION }}

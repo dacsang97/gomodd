@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  gateway:
+    image: nginx:1.25.3-alpine
+    restart: always
+    ports:
+      - 8888:8081
+    volumes:
+      - ./deploy/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/nginx/log:/var/log/nginx
+    depends_on:
+      - gomodd-example
+  gomodd-example:
+    image: ghcr.io/dacsang97/gomodd:v1.0.0
+    working_dir: /go/gomodd-example
+    volumes:
+      - .:/go/gomodd-example
+    restart: always
